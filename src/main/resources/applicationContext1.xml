@@ -6,9 +6,14 @@
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <!--开启自动代理-->
-    <aop:aspectj-autoproxy/>
     <bean id="userDao" class="dao.UserDao"/>
-    <bean id="myAspect" class="aspects.MyAspect"/>
+    <bean id="myAspect" class="aspects.MyAspect1"/>
+
+    <aop:config>
+        <aop:pointcut id="mypointcut" expression="execution(* dao.UserDao.add(..))"/>
+        <aop:aspect ref="myAspect">
+            <aop:before method="before" pointcut-ref="mypointcut"/>
+        </aop:aspect>
+    </aop:config>
 
 </beans>

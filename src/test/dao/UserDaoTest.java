@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  * Created by lenovo on 2016/10/05.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:applicationContext.xml")
+@ContextConfiguration("classpath:applicationContext1.xml")
 public class UserDaoTest {
 
     @Autowired
